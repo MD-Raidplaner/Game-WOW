@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://md-raidplaner.de" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://md-raidplaner.de https://md-raidplaner.de/XSD/1.0/itemDatabase.xsd">
+    <import>
+        <database identifier="wow_head">rp\system\item\database\WOWHeadItemDatabase</database>
+    </import>
+</data>
