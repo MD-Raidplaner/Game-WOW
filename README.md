@@ -1,5 +1,5 @@
 # MD-Raidplaner - World of Warcraft
-This extension for the [Raidplaner](https://github.com/MD-Raidplaner/Core) system is specifically designed for **World of Warcraft** (WoW).
+This extension for the [MD-Raidplaner](https://github.com/MD-Raidplaner/Core) system is specifically designed for **World of Warcraft** (WoW).
 
 ## License
 This project is licensed under the **Attribution-ShareAlike 4.0 International** (CC BY-SA 4.0) license.
