@@ -2,11 +2,11 @@
 
 namespace rp\system\event\listener;
 
-use rp\data\classification\ClassificationCache;
-use rp\data\race\RaceCache;
-use rp\data\server\ServerCache;
-use rp\data\skill\SkillCache;
 use rp\event\character\CharacterAddCreateForm;
+use rp\system\cache\eager\ClassificationCache;
+use rp\system\cache\eager\RaceCache;
+use rp\system\cache\eager\ServerCache;
+use rp\system\cache\eager\SkillCache;
 use rp\system\form\builder\field\DynamicSelectFormField;
 use wcf\system\form\builder\field\IntegerFormField;
 use wcf\system\form\builder\field\SingleSelectionFormField;
@@ -29,7 +29,7 @@ final class WOWCharacterAddCreateFormListener
             SingleSelectionFormField::create('raceID')
                 ->label('rp.race.title')
                 ->required()
-                ->options(['' => 'wcf.global.noSelection'] + RaceCache::getInstance()->getRaces())
+                ->options(['' => 'wcf.global.noSelection'] + (new RaceCache())->getCache()->getRaces())
                 ->addValidator(new FormFieldValidator('check', function (SingleSelectionFormField $formField) {
                     $value = $formField->getSaveValue();
 
@@ -40,10 +40,10 @@ final class WOWCharacterAddCreateFormListener
             DynamicSelectFormField::create('classificationID')
                 ->label('rp.classification.title')
                 ->required()
-                ->options(ClassificationCache::getInstance()->getClassifications())
+                ->options((new ClassificationCache())->getCache()->getClassifications())
                 ->triggerSelect('raceID')
                 ->optionsMapping(static function () {
-                    $races = ClassificationCache::getInstance()->getClassificationRaces();
+                    $races = (new ClassificationCache())->getCache()->getClassificationRaces();
 
                     $mapping = \array_reduce(\array_keys($races), function ($carry, $classificationID) use ($races) {
                         foreach ($races[$classificationID] as $raceID) {
@@ -64,9 +64,9 @@ final class WOWCharacterAddCreateFormListener
             DynamicSelectFormField::create('talent1')
                 ->label('rp.character.wow.talent.primary')
                 ->required()
-                ->options(SkillCache::getInstance()->getSkills())
+                ->options((new SkillCache())->getCache()->getSkills())
                 ->triggerSelect('classificationID')
-                ->optionsMapping(ClassificationCache::getInstance()->getClassificationSkills())
+                ->optionsMapping((new ClassificationCache())->getCache()->getClassificationSkills())
                 ->addValidator(new FormFieldValidator('check', function (SingleSelectionFormField $formField) {
                     $value = $formField->getSaveValue();
 
@@ -77,9 +77,9 @@ final class WOWCharacterAddCreateFormListener
             DynamicSelectFormField::create('talent2')
                 ->label('rp.character.wow.talent.secondary')
                 ->nullable()
-                ->options(SkillCache::getInstance()->getSkills())
+                ->options((new SkillCache())->getCache()->getSkills())
                 ->triggerSelect('classificationID')
-                ->optionsMapping(ClassificationCache::getInstance()->getClassificationSkills()),
+                ->optionsMapping((new ClassificationCache())->getCache()->getClassificationSkills()),
             IntegerFormField::create('level')
                 ->label('rp.character.wow.level')
                 ->required()
@@ -88,7 +88,7 @@ final class WOWCharacterAddCreateFormListener
                 ->value(0),
             SingleSelectionFormField::create('serverID')
                 ->label('rp.server.title')
-                ->options(['' => 'wcf.global.noSelection'] + ServerCache::getInstance()->getServers())
+                ->options(['' => 'wcf.global.noSelection'] + (new ServerCache())->getCache()->getServers())
                 ->nullable(),
         ]);
     }

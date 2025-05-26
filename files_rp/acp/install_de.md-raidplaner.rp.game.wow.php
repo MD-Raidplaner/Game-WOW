@@ -6,10 +6,10 @@
  * @license MD-Raidplaner is licensed under Creative Commons Attribution-ShareAlike 4.0 International
  */
 
-use rp\data\game\GameCache;
+use rp\system\cache\eager\GameCache;
 use rp\util\RPGameInstall;
 
-$gameID = GameCache::getInstance()->getGameByIdentifier('wow')?->gameID;
+$gameID = (new GameCache())->getCache()->getGameByIdentifier('wow')?->getObjectID();
 $packageID = $this->installation->getPackageID();
 
 // Battle for Azeroth
