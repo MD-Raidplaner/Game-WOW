@@ -7,6 +7,7 @@ use rp\event\faction\FactionCollecting;
 use rp\event\game\GameCollecting;
 use rp\event\race\RaceCollecting;
 use rp\event\raid\AddAttendeesChecking;
+use rp\event\role\RoleCollecting;
 use rp\system\cache\eager\GameCache;
 use rp\system\event\listener\DefaultAddAttendeesChecking;
 use rp\system\event\listener\WOWAvailableCharactersChecking;
@@ -15,6 +16,7 @@ use rp\system\event\listener\WOWEventCreateFormListener;
 use rp\system\faction\FactionItem;
 use rp\system\game\GameItem;
 use rp\system\race\RaceItem;
+use rp\system\role\RoleItem;
 use wcf\system\event\EventHandler;
 
 return static function (): void {
@@ -166,5 +168,12 @@ return static function (): void {
             'wow',
             factions: ['horde']
         ));
+    });
+
+    $eventHandler->register(RoleCollecting::class, static function (RoleCollecting $event) {
+        $event->register(new RoleItem('ddDistance', 'wow'));
+        $event->register(new RoleItem('ddNear', 'wow'));
+        $event->register(new RoleItem('healer', 'wow'));
+        $event->register(new RoleItem('tank', 'wow'));
     });
 };

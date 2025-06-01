@@ -45,6 +45,13 @@
             <item name="rp.race.wow.zandalariTroll"><![CDATA[Zandalari Troll]]></item>
         </category>
 
+        <category name="rp.role">
+            <item name="rp.role.wow.ddDistance"><![CDATA[DD Fernkampf]]></item>
+            <item name="rp.role.wow.ddNear"><![CDATA[DD Nahkampf]]></item>
+            <item name="rp.role.wow.healer"><![CDATA[Heiler]]></item>
+            <item name="rp.role.wow.tank"><![CDATA[Tank]]></item>
+        </category>
+
         <category name="rp.server">
             <item name="rp.server.wow.group.de"><![CDATA[Deutsch]]></item>
             <item name="rp.server.wow.group.en"><![CDATA[Englisch]]></item>
