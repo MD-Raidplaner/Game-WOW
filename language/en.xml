@@ -18,6 +18,33 @@
             <item name="rp.game.wow"><![CDATA[World of Warcraft]]></item>
         </category>
 
+        <category name="rp.race">
+            <item name="rp.race.wow.bloodElf"><![CDATA[Blood Elf]]></item>
+            <item name="rp.race.wow.darkIronDwarf"><![CDATA[Dark Iron Dwar]]></item>
+            <item name="rp.race.wow.dracthyr"><![CDATA[Dracthyr]]></item>
+            <item name="rp.race.wow.draenei"><![CDATA[Draenei]]></item>
+            <item name="rp.race.wow.dwarf"><![CDATA[Dwarf]]></item>
+            <item name="rp.race.wow.gnome"><![CDATA[Gnome]]></item>
+            <item name="rp.race.wow.goblin"><![CDATA[Goblin]]></item>
+            <item name="rp.race.wow.highmountainTauren"><![CDATA[Highmountain Tauren]]></item>
+            <item name="rp.race.wow.human"><![CDATA[Human]]></item>
+            <item name="rp.race.wow.kulTiran"><![CDATA[Kul Tiran]]></item>
+            <item name="rp.race.wow.lightforgedDraenei"><![CDATA[Lightforged Draenei]]></item>
+            <item name="rp.race.wow.magharOrc"><![CDATA[Mag'har Orc]]></item>
+            <item name="rp.race.wow.mechagnome"><![CDATA[Mechagnome]]></item>
+            <item name="rp.race.wow.nightborne"><![CDATA[Nightborne]]></item>
+            <item name="rp.race.wow.nightElf"><![CDATA[Night Elf]]></item>
+            <item name="rp.race.wow.orc"><![CDATA[Orc]]></item>
+            <item name="rp.race.wow.pandaren"><![CDATA[Pandaren]]></item>
+            <item name="rp.race.wow.tauren"><![CDATA[Tauren]]></item>
+            <item name="rp.race.wow.troll"><![CDATA[Troll]]></item>
+            <item name="rp.race.wow.undead"><![CDATA[Undead]]></item>
+            <item name="rp.race.wow.voidElf"><![CDATA[Void Elf]]></item>
+            <item name="rp.race.wow.vulpera"><![CDATA[Vulpera]]></item>
+            <item name="rp.race.wow.worgen"><![CDATA[Worgen]]></item>
+            <item name="rp.race.wow.zandalariTroll"><![CDATA[Zandalari Troll]]></item>
+        </category>
+
         <category name="rp.server">
             <item name="rp.server.wow.group.de"><![CDATA[German]]></item>
             <item name="rp.server.wow.group.en"><![CDATA[English]]></item>

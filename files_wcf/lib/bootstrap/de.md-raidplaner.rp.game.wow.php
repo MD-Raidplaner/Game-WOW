@@ -5,6 +5,7 @@ use rp\event\character\CharacterAddCreateForm;
 use rp\event\event\EventCreateForm;
 use rp\event\faction\FactionCollecting;
 use rp\event\game\GameCollecting;
+use rp\event\race\RaceCollecting;
 use rp\event\raid\AddAttendeesChecking;
 use rp\system\cache\eager\GameCache;
 use rp\system\event\listener\DefaultAddAttendeesChecking;
@@ -13,6 +14,7 @@ use rp\system\event\listener\WOWCharacterAddCreateFormListener;
 use rp\system\event\listener\WOWEventCreateFormListener;
 use rp\system\faction\FactionItem;
 use rp\system\game\GameItem;
+use rp\system\race\RaceItem;
 use wcf\system\event\EventHandler;
 
 return static function (): void {
@@ -32,5 +34,137 @@ return static function (): void {
     $eventHandler->register(FactionCollecting::class, static function (FactionCollecting $event) {
         $event->register(new FactionItem('alliance', 'wow', 'alliance'));
         $event->register(new FactionItem('horde', 'wow', 'horde'));
+    });
+
+    $eventHandler->register(RaceCollecting::class, static function (RaceCollecting $event) {
+        $event->register(new RaceItem(
+            'bloodElf',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'darkIronDwarf',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'dracthyr',
+            'wow',
+            factions: [
+                'alliance',
+                'horde'
+            ]
+        ));
+        $event->register(new RaceItem(
+            'draenei',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'dwarf',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'gnome',
+            'wow',
+            factions: [
+                'alliance',
+                'horde'
+            ]
+        ));
+        $event->register(new RaceItem(
+            'goblin',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'highmountainTauren',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'human',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'kulTiran',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'lightforgedDraenei',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'magharOrc',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'mechagnome',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'nightborne',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'nightElf',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'orc',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'pandaren',
+            'wow',
+            factions: [
+                'alliance',
+                'horde'
+            ]
+        ));
+        $event->register(new RaceItem(
+            'tauren',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'troll',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'undead',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'voidElf',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'vulpera',
+            'wow',
+            factions: ['horde']
+        ));
+        $event->register(new RaceItem(
+            'worgen',
+            'wow',
+            factions: ['alliance']
+        ));
+        $event->register(new RaceItem(
+            'zandalariTroll',
+            'wow',
+            factions: ['horde']
+        ));
     });
 };

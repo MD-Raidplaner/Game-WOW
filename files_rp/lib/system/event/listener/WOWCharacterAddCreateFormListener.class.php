@@ -4,10 +4,10 @@ namespace rp\system\event\listener;
 
 use rp\event\character\CharacterAddCreateForm;
 use rp\system\cache\eager\ClassificationCache;
-use rp\system\cache\eager\RaceCache;
 use rp\system\cache\eager\ServerCache;
 use rp\system\cache\eager\SkillCache;
 use rp\system\form\builder\field\DynamicSelectFormField;
+use rp\system\race\RaceHandler;
 use wcf\system\form\builder\field\IntegerFormField;
 use wcf\system\form\builder\field\SingleSelectionFormField;
 use wcf\system\form\builder\field\validation\FormFieldValidationError;
@@ -26,10 +26,10 @@ final class WOWCharacterAddCreateFormListener
     {
         $section = $event->form->getNodeById('characterGeneralSection');
         $section->appendChildren([
-            SingleSelectionFormField::create('raceID')
+            SingleSelectionFormField::create('race')
                 ->label('rp.race.title')
                 ->required()
-                ->options(['' => 'wcf.global.noSelection'] + (new RaceCache())->getCache()->getRaces())
+                ->options(['' => 'wcf.global.noSelection'] + RaceHandler::getInstance()->getRaces())
                 ->addValidator(new FormFieldValidator('check', function (SingleSelectionFormField $formField) {
                     $value = $formField->getSaveValue();
 
@@ -41,7 +41,7 @@ final class WOWCharacterAddCreateFormListener
                 ->label('rp.classification.title')
                 ->required()
                 ->options((new ClassificationCache())->getCache()->getClassifications())
-                ->triggerSelect('raceID')
+                ->triggerSelect('race')
                 ->optionsMapping(static function () {
                     $races = (new ClassificationCache())->getCache()->getClassificationRaces();
 
