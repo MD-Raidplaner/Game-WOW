@@ -3,6 +3,7 @@
 use rp\event\character\AvailableCharactersChecking;
 use rp\event\character\CharacterAddCreateForm;
 use rp\event\event\EventCreateForm;
+use rp\event\faction\FactionCollecting;
 use rp\event\game\GameCollecting;
 use rp\event\raid\AddAttendeesChecking;
 use rp\system\cache\eager\GameCache;
@@ -10,6 +11,7 @@ use rp\system\event\listener\DefaultAddAttendeesChecking;
 use rp\system\event\listener\WOWAvailableCharactersChecking;
 use rp\system\event\listener\WOWCharacterAddCreateFormListener;
 use rp\system\event\listener\WOWEventCreateFormListener;
+use rp\system\faction\FactionItem;
 use rp\system\game\GameItem;
 use wcf\system\event\EventHandler;
 
@@ -24,10 +26,11 @@ return static function (): void {
     $eventHandler->register(EventCreateForm::class, WOWEventCreateFormListener::class);
 
     $eventHandler->register(GameCollecting::class, static function (GameCollecting $event) {
-        $event->register(
-            new GameItem(
-                'wow'
-            )
-        );
+        $event->register(new GameItem('wow'));
+    });
+
+    $eventHandler->register(FactionCollecting::class, static function (FactionCollecting $event) {
+        $event->register(new FactionItem('alliance', 'wow', 'alliance'));
+        $event->register(new FactionItem('horde', 'wow', 'horde'));
     });
 };

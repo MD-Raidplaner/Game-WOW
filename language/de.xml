@@ -9,6 +9,11 @@
             <item name="rp.character.wow.talent.secondary"><![CDATA[Sekundäre Talentspezialisierung]]></item>
         </category>
 
+        <category name="rp.faction">
+            <item name="rp.faction.wow.alliance"><![CDATA[Alliance]]></item>
+            <item name="rp.faction.wow.horde"><![CDATA[Horde]]></item>
+        </category>
+
         <category name="rp.game">
             <item name="rp.game.wow"><![CDATA[World of Warcraft]]></item>
         </category>
