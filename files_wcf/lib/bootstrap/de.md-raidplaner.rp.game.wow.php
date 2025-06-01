@@ -3,6 +3,7 @@
 use rp\event\character\AvailableCharactersChecking;
 use rp\event\character\CharacterAddCreateForm;
 use rp\event\event\EventCreateForm;
+use rp\event\game\GameCollecting;
 use rp\event\raid\AddAttendeesChecking;
 use rp\system\cache\eager\GameCache;
 use rp\system\event\listener\DefaultAddAttendeesChecking;
@@ -20,4 +21,12 @@ return static function (): void {
     $eventHandler->register(AvailableCharactersChecking::class, WOWAvailableCharactersChecking::class);
     $eventHandler->register(CharacterAddCreateForm::class, WOWCharacterAddCreateFormListener::class);
     $eventHandler->register(EventCreateForm::class, WOWEventCreateFormListener::class);
+
+    $eventHandler->register(GameCollecting::class, static function (GameCollecting $event) {
+        $event->register(
+            new GameItem(
+                'wow'
+            )
+        );
+    });
 };
