@@ -10,6 +10,7 @@ use rp\system\event\listener\DefaultAddAttendeesChecking;
 use rp\system\event\listener\WOWAvailableCharactersChecking;
 use rp\system\event\listener\WOWCharacterAddCreateFormListener;
 use rp\system\event\listener\WOWEventCreateFormListener;
+use rp\system\game\GameItem;
 use wcf\system\event\EventHandler;
 
 return static function (): void {
