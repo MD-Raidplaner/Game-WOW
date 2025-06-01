@@ -6,10 +6,10 @@
  * @license MD-Raidplaner is licensed under Creative Commons Attribution-ShareAlike 4.0 International
  */
 
-use rp\system\cache\eager\GameCache;
+use rp\system\game\GameHandler;
 use rp\util\RPGameInstall;
 
-$gameID = (new GameCache())->getCache()->getGameByIdentifier('wow')?->getObjectID();
+$game = 'wow';
 $packageID = $this->installation->getPackageID();
 
 // Battle for Azeroth
@@ -122,7 +122,7 @@ $battleForAzeroth = [
 ];
 
 (new RPGameInstall(
-    $gameID,
+    $game,
     'Battle for Azeroth',
     $battleForAzeroth,
     $packageID
@@ -238,7 +238,7 @@ $legion = [
 ];
 
 (new RPGameInstall(
-    $gameID,
+    $game,
     'Legion',
     $legion,
     $packageID
@@ -291,7 +291,7 @@ $wod = [
 ];
 
 (new RPGameInstall(
-    $gameID,
+    $game,
     'WoD',
     $wod,
     $packageID
@@ -365,7 +365,7 @@ $mop = [
 ];
 
 (new RPGameInstall(
-    $gameID,
+    $game,
     'Mop',
     $mop,
     $packageID
@@ -411,7 +411,7 @@ $classic = [
 ];
 
 (new RPGameInstall(
-    $gameID,
+    $game,
     'Classic',
     $classic,
     $packageID
