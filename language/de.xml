@@ -59,5 +59,47 @@
             <item name="rp.server.wow.group.ru"><![CDATA[Russisch]]></item>
             <item name="rp.server.wow.group.spa"><![CDATA[Spanisch]]></item>
         </category>
+
+        <category name="rp.skill">
+            <item name="rp.skill.wow.affliction"><![CDATA[Gebrechen]]></item>
+            <item name="rp.skill.wow.arcane"><![CDATA[Arkan]]></item>
+            <item name="rp.skill.wow.arms"><![CDATA[Waffen]]></item>
+            <item name="rp.skill.wow.assassination"><![CDATA[Meucheln]]></item>
+            <item name="rp.skill.wow.augmentation"><![CDATA[Verstärkung]]></item>
+            <item name="rp.skill.wow.balance"><![CDATA[Gleichgewicht]]></item>
+            <item name="rp.skill.wow.beastMastery"><![CDATA[Tierherrschaft]]></item>
+            <item name="rp.skill.wow.blood"><![CDATA[Blut]]></item>
+            <item name="rp.skill.wow.brewmaster"><![CDATA[Braumeister]]></item>
+            <item name="rp.skill.wow.demonology"><![CDATA[Dämonologie]]></item>
+            <item name="rp.skill.wow.destruction"><![CDATA[Zerstörung]]></item>
+            <item name="rp.skill.wow.devastation"><![CDATA[Verheerung]]></item>
+            <item name="rp.skill.wow.discipline"><![CDATA[Disziplin]]></item>
+            <item name="rp.skill.wow.elemental"><![CDATA[Elementar]]></item>
+            <item name="rp.skill.wow.enhancement"><![CDATA[Verstärkung]]></item>
+            <item name="rp.skill.wow.feral"><![CDATA[Wildheit]]></item>
+            <item name="rp.skill.wow.fire"><![CDATA[Feuer]]></item>
+            <item name="rp.skill.wow.frost"><![CDATA[Frost]]></item>
+            <item name="rp.skill.wow.frost2"><![CDATA[Frost]]></item>
+            <item name="rp.skill.wow.fury"><![CDATA[Furor]]></item>
+            <item name="rp.skill.wow.guardian"><![CDATA[Wächter]]></item>
+            <item name="rp.skill.wow.havoc"><![CDATA[Verwüstung]]></item>
+            <item name="rp.skill.wow.holy"><![CDATA[Heilig]]></item>
+            <item name="rp.skill.wow.holy2"><![CDATA[Heilig]]></item>
+            <item name="rp.skill.wow.marksmanship"><![CDATA[Treffsicherheit]]></item>
+            <item name="rp.skill.wow.mistweaver"><![CDATA[Nebelwirker]]></item>
+            <item name="rp.skill.wow.outlaw"><![CDATA[Gesetztlosigkeit]]></item>
+            <item name="rp.skill.wow.preservation"><![CDATA[Bewahrung]]></item>
+            <item name="rp.skill.wow.protection"><![CDATA[Schutz]]></item>
+            <item name="rp.skill.wow.protection2"><![CDATA[Schutz]]></item>
+            <item name="rp.skill.wow.restoration"><![CDATA[Wiederherstellung]]></item>
+            <item name="rp.skill.wow.restoration2"><![CDATA[Wiederherstellung]]></item>
+            <item name="rp.skill.wow.retribution"><![CDATA[Vergeltung]]></item>
+            <item name="rp.skill.wow.shadow"><![CDATA[Schatten]]></item>
+            <item name="rp.skill.wow.subtlety"><![CDATA[Täuschung]]></item>
+            <item name="rp.skill.wow.survival"><![CDATA[Überleben]]></item>
+            <item name="rp.skill.wow.unholy"><![CDATA[Unheilig]]></item>
+            <item name="rp.skill.wow.vengeance"><![CDATA[Rachsucht]]></item>
+            <item name="rp.skill.wow.windwalker"><![CDATA[Windläufer]]></item>
+        </category>
     </import>
 </language>
