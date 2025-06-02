@@ -5,9 +5,9 @@ namespace rp\system\event\listener;
 use rp\event\character\CharacterAddCreateForm;
 use rp\system\cache\eager\ClassificationCache;
 use rp\system\cache\eager\ServerCache;
-use rp\system\cache\eager\SkillCache;
 use rp\system\form\builder\field\DynamicSelectFormField;
 use rp\system\race\RaceHandler;
+use rp\system\skill\SkillHandler;
 use wcf\system\form\builder\field\IntegerFormField;
 use wcf\system\form\builder\field\SingleSelectionFormField;
 use wcf\system\form\builder\field\validation\FormFieldValidationError;
@@ -64,7 +64,7 @@ final class WOWCharacterAddCreateFormListener
             DynamicSelectFormField::create('talent1')
                 ->label('rp.character.wow.talent.primary')
                 ->required()
-                ->options((new SkillCache())->getCache()->getSkills())
+                ->options(SkillHandler::getInstance()->getSkills())
                 ->triggerSelect('classificationID')
                 ->optionsMapping((new ClassificationCache())->getCache()->getClassificationSkills())
                 ->addValidator(new FormFieldValidator('check', function (SingleSelectionFormField $formField) {
@@ -77,7 +77,7 @@ final class WOWCharacterAddCreateFormListener
             DynamicSelectFormField::create('talent2')
                 ->label('rp.character.wow.talent.secondary')
                 ->nullable()
-                ->options((new SkillCache())->getCache()->getSkills())
+                ->options(SkillHandler::getInstance()->getSkills())
                 ->triggerSelect('classificationID')
                 ->optionsMapping((new ClassificationCache())->getCache()->getClassificationSkills()),
             IntegerFormField::create('level')
