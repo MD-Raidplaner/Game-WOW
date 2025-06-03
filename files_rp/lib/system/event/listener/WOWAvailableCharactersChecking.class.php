@@ -31,7 +31,7 @@ final class WOWAvailableCharactersChecking
                 $character->getObjectID(),
                 $character->getTitle(),
                 $character->race,
-                $character->classificationID,
+                $character->classification,
             );
             $eventChecking->setAvailableCharacter($character->getObjectID(), $availableCharacter);
         }

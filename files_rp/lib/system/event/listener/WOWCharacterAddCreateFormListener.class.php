@@ -3,8 +3,8 @@
 namespace rp\system\event\listener;
 
 use rp\event\character\CharacterAddCreateForm;
-use rp\system\cache\eager\ClassificationCache;
 use rp\system\cache\eager\ServerCache;
+use rp\system\classification\ClassificationHandler;
 use rp\system\form\builder\field\DynamicSelectFormField;
 use rp\system\race\RaceHandler;
 use rp\system\skill\SkillHandler;
@@ -37,17 +37,17 @@ final class WOWCharacterAddCreateFormListener
                         $formField->addValidationError(new FormFieldValidationError('empty'));
                     }
                 })),
-            DynamicSelectFormField::create('classificationID')
+            DynamicSelectFormField::create('classification')
                 ->label('rp.classification.title')
                 ->required()
-                ->options((new ClassificationCache())->getCache()->getClassifications())
+                ->options(ClassificationHandler::getInstance()->getClassifications())
                 ->triggerSelect('race')
                 ->optionsMapping(static function () {
-                    $races = (new ClassificationCache())->getCache()->getClassificationRaces();
+                    $races = ClassificationHandler::getInstance()->getRoleMapByClassification();
 
-                    $mapping = \array_reduce(\array_keys($races), function ($carry, $classificationID) use ($races) {
-                        foreach ($races[$classificationID] as $raceID) {
-                            $carry[$raceID][] = $classificationID;
+                    $mapping = \array_reduce(\array_keys($races), function ($carry, $classification) use ($races) {
+                        foreach ($races[$classification] as $raceID) {
+                            $carry[$raceID][] = $classification;
                         }
                         return $carry;
                     }, []);
@@ -66,7 +66,7 @@ final class WOWCharacterAddCreateFormListener
                 ->required()
                 ->options(SkillHandler::getInstance()->getSkills())
                 ->triggerSelect('classificationID')
-                ->optionsMapping((new ClassificationCache())->getCache()->getClassificationSkills())
+                ->optionsMapping(ClassificationHandler::getInstance()->getSkillMapByClassification())
                 ->addValidator(new FormFieldValidator('check', function (SingleSelectionFormField $formField) {
                     $value = $formField->getSaveValue();
 
@@ -79,7 +79,7 @@ final class WOWCharacterAddCreateFormListener
                 ->nullable()
                 ->options(SkillHandler::getInstance()->getSkills())
                 ->triggerSelect('classificationID')
-                ->optionsMapping((new ClassificationCache())->getCache()->getClassificationSkills()),
+                ->optionsMapping(ClassificationHandler::getInstance()->getSkillMapByClassification(),
             IntegerFormField::create('level')
                 ->label('rp.character.wow.level')
                 ->required()

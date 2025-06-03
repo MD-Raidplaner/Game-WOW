@@ -2,6 +2,7 @@
 
 use rp\event\character\AvailableCharactersChecking;
 use rp\event\character\CharacterAddCreateForm;
+use rp\event\classification\ClassificationCollecting;
 use rp\event\event\EventCreateForm;
 use rp\event\faction\FactionCollecting;
 use rp\event\game\GameCollecting;
@@ -10,6 +11,7 @@ use rp\event\raid\AddAttendeesChecking;
 use rp\event\role\RoleCollecting;
 use rp\event\skill\SkillCollecting;
 use rp\system\cache\eager\GameCache;
+use rp\system\classification\ClassificationItem;
 use rp\system\event\listener\DefaultAddAttendeesChecking;
 use rp\system\event\listener\WOWAvailableCharactersChecking;
 use rp\system\event\listener\WOWCharacterAddCreateFormListener;
@@ -219,5 +221,451 @@ return static function (): void {
         $event->register(new SkillItem('unholy', 'wow'));
         $event->register(new SkillItem('vengeance', 'wow'));
         $event->register(new SkillItem('windwalker', 'wow'));
+    });
+
+    $eventHandler->register(ClassificationCollecting::class, static function (ClassificationCollecting $event) {
+        $event->register(new ClassificationItem(
+            'deathKnight',
+            'wow',
+            factions: [
+                'alliance',
+                'horde'
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'draenei',
+                'dwarf',
+                'gnome',
+                'goblin',
+                'highmountainTauren',
+                'human',
+                'kulTiran',
+                'lightforgedDraenei',
+                'magharOrc',
+                'mechagnome',
+                'nightborne',
+                'nightElf',
+                'orc',
+                'pandaren',
+                'tauren',
+                'troll',
+                'undead',
+                'voidElf',
+                'vulpera',
+                'worgen',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddNear',
+                'tank',
+            ],
+            skills: [
+                'blood',
+                'frost',
+                'unholy',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'demonHunter',
+            'wow',
+            factions: ['alliance', 
+            'horde'],
+            races: [
+                'bloodElf',
+                'nightElf',
+            ],
+            roles: [
+                'ddNear',
+                'tank',
+            ],
+            skills: [
+                'havoc',
+                'vengeance',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'druid',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'highmountainTauren',
+                'kulTiran',
+                'mechagnome',
+                'nightElf',
+                'tauren',
+                'troll',
+                'worgen',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddDistance',
+                'ddNear',
+                'healer',
+                'tank',
+            ],
+            skills: [
+                'balance',
+                'feral',
+                'guardian',
+                'restoration',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'evoker',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'dracthyr',
+            ],
+            roles: [
+                'ddNear',
+                'healer',
+            ],
+            skills: [
+                'augmentation',
+                'devastation',
+                'preservation',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'hunter',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'draenei',
+                'dwarf',
+                'gnome',
+                'goblin',
+                'highmountainTauren',
+                'human',
+                'kulTiran',
+                'lightforgedDraenei',
+                'magharOrc',
+                'mechagnome',
+                'nightborne',
+                'nightElf',
+                'orc',
+                'pandaren',
+                'tauren',
+                'troll',
+                'undead',
+                'voidElf',
+                'vulpera',
+                'worgen',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddDistance',
+                'ddNear',
+            ],
+            skills: [
+                'beastMastery',
+                'marksmanship',
+                'survival',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'mage',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'draenei',
+                'dwarf',
+                'gnome',
+                'goblin',
+                'human',
+                'kulTiran',
+                'lightforgedDraenei',
+                'magharOrc',
+                'mechagnome',
+                'nightborne',
+                'nightElf',
+                'orc',
+                'pandaren',
+                'troll',
+                'undead',
+                'voidElf',
+                'vulpera',
+                'worgen',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddDistance',
+            ],
+            skills: [
+                'arcane',
+                'fire',
+                'frost2',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'monk',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'draenei',
+                'dwarf',
+                'gnome',
+                'highmountainTauren',
+                'human',
+                'kulTiran',
+                'magharOrc',
+                'mechagnome',
+                'nightborne',
+                'nightElf',
+                'orc',
+                'pandaren',
+                'tauren',
+                'troll',
+                'undead',
+                'voidElf',
+                'vulpera',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddNear',
+                'healer',
+                'tank',
+            ],
+            skills: [
+                'brewmaster',
+                'mistweaver',
+                'windwalker',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'paladin',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'draenei',
+                'dwarf',
+                'human',
+                'lightforgedDraenei',
+                'tauren',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddNear',
+                'healer',
+                'tank',
+            ],
+            skills: [
+                'holy',
+                'protection',
+                'retribution',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'priest',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'draenei',
+                'dwarf',
+                'gnome',
+                'goblin',
+                'human',
+                'kulTiran',
+                'lightforgedDraenei',
+                'magharOrc',
+                'mechagnome',
+                'nightborne',
+                'nightElf',
+                'pandaren',
+                'tauren',
+                'troll',
+                'undead',
+                'voidElf',
+                'vulpera',
+                'worgen',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddDistance',
+                'healer',
+            ],
+            skills: [
+                'discipline',
+                'holy2',
+                'shadow',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'rogue',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'dwarf',
+                'gnome',
+                'goblin',
+                'human',
+                'kulTiran',
+                'magharOrc',
+                'mechagnome',
+                'nightborne',
+                'nightElf',
+                'orc',
+                'pandaren',
+                'troll',
+                'undead',
+                'voidElf',
+                'vulpera',
+                'worgen',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddNear',
+            ],
+            skills: [
+                'assassination',
+                'outlaw',
+                'subtlety',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'shaman',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'darkIronDwarf',
+                'draenei',
+                'dwarf',
+                'goblin',
+                'highmountainTauren',
+                'kulTiran',
+                'magharOrc',
+                'orc',
+                'pandaren',
+                'tauren',
+                'troll',
+                'vulpera',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddDistance',
+                'ddNear',
+                'healer',
+            ],
+            skills: [
+                'elemental',
+                'enhancement',
+                'restoration2',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'warlock',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'dwarf',
+                'gnome',
+                'goblin',
+                'human',
+                'mechagnome',
+                'nightborne',
+                'orc',
+                'troll',
+                'undead',
+                'voidElf',
+                'vulpera',
+                'worgen',
+            ],
+            roles: [
+                'ddDistance',
+            ],
+            skills: [
+                'affliction',
+                'demonology',
+                'destruction',
+            ]
+        ));
+        $event->register(new ClassificationItem(
+            'warrior',
+            'wow',
+            factions: [
+                'alliance',
+                'horde',
+            ],
+            races: [
+                'bloodElf',
+                'darkIronDwarf',
+                'draenei',
+                'dwarf',
+                'gnome',
+                'goblin',
+                'highmountainTauren',
+                'human',
+                'kulTiran',
+                'lightforgedDraenei',
+                'magharOrc',
+                'mechagnome',
+                'nightborne',
+                'nightElf',
+                'orc',
+                'pandaren',
+                'tauren',
+                'troll',
+                'undead',
+                'voidElf',
+                'vulpera',
+                'worgen',
+                'zandalariTroll',
+            ],
+            roles: [
+                'ddNear',
+                'tank',
+            ],
+            skills: [
+                'arms',
+                'fury',
+                'protection2',
+            ]
+        ));
     });
 };

@@ -9,6 +9,22 @@
             <item name="rp.character.wow.talent.secondary"><![CDATA[Sekundäre Talentspezialisierung]]></item>
         </category>
 
+        <category name="rp.classification">
+            <item name="rp.classification.wow.deathKnight"><![CDATA[Todesritter]]></item>
+            <item name="rp.classification.wow.demonHunter"><![CDATA[Dämonenjäger]]></item>
+            <item name="rp.classification.wow.druid"><![CDATA[Druide]]></item>
+            <item name="rp.classification.wow.evoker"><![CDATA[Rufer]]></item>
+            <item name="rp.classification.wow.hunter"><![CDATA[Jäger]]></item>
+            <item name="rp.classification.wow.mage"><![CDATA[Magier]]></item>
+            <item name="rp.classification.wow.monk"><![CDATA[Mönch]]></item>
+            <item name="rp.classification.wow.paladin"><![CDATA[Paladin]]></item>
+            <item name="rp.classification.wow.priest"><![CDATA[Priester]]></item>
+            <item name="rp.classification.wow.rogue"><![CDATA[Schurke]]></item>
+            <item name="rp.classification.wow.shaman"><![CDATA[Schamane]]></item>
+            <item name="rp.classification.wow.warlock"><![CDATA[Hexenmeister]]></item>
+            <item name="rp.classification.wow.warrior"><![CDATA[Krieger]]></item>
+        </category>
+
         <category name="rp.faction">
             <item name="rp.faction.wow.alliance"><![CDATA[Alliance]]></item>
             <item name="rp.faction.wow.horde"><![CDATA[Horde]]></item>
