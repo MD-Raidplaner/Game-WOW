@@ -10,13 +10,13 @@ use rp\event\race\RaceCollecting;
 use rp\event\raid\AddAttendeesChecking;
 use rp\event\role\RoleCollecting;
 use rp\event\skill\SkillCollecting;
-use rp\system\cache\eager\GameCache;
 use rp\system\classification\ClassificationItem;
 use rp\system\event\listener\DefaultAddAttendeesChecking;
 use rp\system\event\listener\WOWAvailableCharactersChecking;
 use rp\system\event\listener\WOWCharacterAddCreateFormListener;
 use rp\system\event\listener\WOWEventCreateFormListener;
 use rp\system\faction\FactionItem;
+use rp\system\game\GameHandler;
 use rp\system\game\GameItem;
 use rp\system\race\RaceItem;
 use rp\system\role\RoleItem;
@@ -24,14 +24,14 @@ use rp\system\skill\SkillItem;
 use wcf\system\event\EventHandler;
 
 return static function (): void {
-    if ((new GameCache())->getCache()->getCurrentGame()->identifier !== 'wow') return;
-
     $eventHandler = EventHandler::getInstance();
 
-    $eventHandler->register(AddAttendeesChecking::class, DefaultAddAttendeesChecking::class);
-    $eventHandler->register(AvailableCharactersChecking::class, WOWAvailableCharactersChecking::class);
-    $eventHandler->register(CharacterAddCreateForm::class, WOWCharacterAddCreateFormListener::class);
-    $eventHandler->register(EventCreateForm::class, WOWEventCreateFormListener::class);
+    if (GameHandler::getInstance()->getCurrentGame()->identifier === 'wow') {
+        $eventHandler->register(AddAttendeesChecking::class, DefaultAddAttendeesChecking::class);
+        $eventHandler->register(AvailableCharactersChecking::class, WOWAvailableCharactersChecking::class);
+        $eventHandler->register(CharacterAddCreateForm::class, WOWCharacterAddCreateFormListener::class);
+        $eventHandler->register(EventCreateForm::class, WOWEventCreateFormListener::class);
+    }
 
     $eventHandler->register(GameCollecting::class, static function (GameCollecting $event) {
         $event->register(new GameItem('wow'));
@@ -269,8 +269,10 @@ return static function (): void {
         $event->register(new ClassificationItem(
             'demonHunter',
             'wow',
-            factions: ['alliance', 
-            'horde'],
+            factions: [
+                'alliance',
+                'horde'
+            ],
             races: [
                 'bloodElf',
                 'nightElf',
