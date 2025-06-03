@@ -26,8 +26,6 @@
         <instruction type="file" application="rp">files_rp.tar</instruction>
         <instruction type="file" application="wcf">files_wcf.tar</instruction>
         <instruction type="language" />
-
-        <instruction type="rpServer" />
         <instruction type="rpItemDatabase" />
 		<instruction type="script" application="rp">acp/install_de.md-raidplaner.rp.game.wow.php</instruction>
     </instructions>
